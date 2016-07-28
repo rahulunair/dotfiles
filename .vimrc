@@ -35,6 +35,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 "*****************************************************************************
 "" NeoBundle install packages
 "*****************************************************************************
+NeoBundle '907th/vim-auto-save'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jistr/vim-nerdtree-tabs.git'
 NeoBundle 'tpope/vim-commentary'
@@ -60,6 +61,9 @@ NeoBundle 'Shougo/vimproc.vim', {
       \    },
       \ }
 
+
+"" Autosave one
+"""let auto_save=1
 "" Vim-Session
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-session'
@@ -92,6 +96,9 @@ NeoBundle "racer-rust/vim-racer"
 
 "" Go Lang Bundle
 NeoBundle "fatih/vim-go"
+
+"" elm Bundle
+NeoBundle "lambdatoast/elm.vim"
 
 "" C Bundle
 NeoBundle 'vim-scripts/c.vim'
@@ -131,6 +138,7 @@ set tabstop=4
 set softtabstop=0
 set shiftwidth=4
 set expandtab
+set smarttab
 
 "" Map leader to ,
 let mapleader=','
@@ -456,13 +464,13 @@ augroup vimrc-python
 augroup END
 
 " jedi-vim
-let g:jedi#popup_on_dot = 0
+let g:jedi#popup_on_dot = 1 
 let g:jedi#goto_assignments_command = "<leader>g"
 let g:jedi#goto_definitions_command = "<leader>d"
-let g:jedi#documentation_command = "K"
+let g:jedi#documentation_command = "<leader>k"
 let g:jedi#usages_command = "<leader>n"
 let g:jedi#rename_command = "<leader>r"
-let g:jedi#show_call_signatures = "0"
+let g:jedi#show_call_signatures = "1"
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#smart_auto_mappings = 0
 
@@ -548,3 +556,6 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
+""" keymappings
+noremap <F2> :s/\([  ]*\)\([^=^\t]*\)\([+-/* ]=\) \([^;^\t]*\);/\1\4 \3 \2;<CR>:nohl<CR>
+
