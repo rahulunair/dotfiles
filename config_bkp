@@ -1,0 +1,22 @@
+Host 172.99.106.231
+   ProxyCommand None
+Host localhost
+   ProxyCommand None
+
+Host *.intel.com
+   ProxyCommand None
+
+Host localhost
+   ProxyCommand None
+
+Host 127.0.0.1
+   ProxyCommand None
+
+Host 192.168.121.*
+   ProxyCommand None
+
+Host 10.0.0.*
+   ProxyCommand None
+
+Host *
+   ProxyCommand nc -X 5 -x proxy-us.intel.com:1080 %h %p
